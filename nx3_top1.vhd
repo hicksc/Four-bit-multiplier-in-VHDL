@@ -31,61 +31,6 @@ entity nx3_top is
          segments : out  STD_LOGIC_VECTOR (7 downto 0));
 end nx3_top;	  
 
---architecture Behavioral of nx3_top is
---	signal sum: std_logic_vector(7 downto 0);
---	COMPONENT display
---	PORT(
---		number : IN std_logic_vector(7 downto 0); 
---		segs : OUT std_logic_vector(7 downto 0)
---		);
---	END COMPONENT;
---	begin
---		process (buttons)
---		begin
-			-- Reset the display to off each time digit is changed.
-			--digit <= "0000";           -- Address ALL of the display digits.
-		   --segments <= "11111111";    -- Switch off all of the digits.
-		
---			if (buttons = "01000") then 		-- left
---				digit <= "0111";
---				segments <= "10000000";    
---			elsif (buttons = "00001") then 	-- down
---				digit <= "1011";
---				segments <= "11111001";
---			elsif (buttons = "00100") then	-- up
---				digit <= "1101";
---				segments <= "10011001";
---			elsif (buttons = "00010") then 	-- right
---				digit <= "1110";
---				segments <= "10100100";
---			elsif (buttons = "10000") then -- center
---				digit <= "1110";
---				segments <= "11111001";
---				digit <= "1101";
---				segments <= "10100100";
---				digit <= "1011";
---				segments <= "10110000";
---				digit <= "0111";
---				segments <= "10011001";
---			end if;
-				
---		end process;
-		
-		-- Add numbers on input switches and display on LED outputs
-		--sum <= switches(7 downto 4) * switches(3 downto 0);
---		 leds(7 downto 0) <= "00000000";
-		
-
-		--digit <= "1110";           -- Address the rightmost 7-segment display
-		-- Instantiate the 2x7-segment display.
-		--disp: display PORT MAP( number => sum,
-		--								segs => segments );
-
-		-- (The tools will complain if these lines are left out, as all outputs must be assigned a value)
-		-- digit <= "1110";           -- Address the rightmost 7-segment display
-		-- segments <= "11111111";    -- Switch off the 7 segment display addressed by "digit" 
---end architecture Behavioral; 
-
 architecture behavioral of nx3_top is
 	component display
 	PORT(
@@ -125,4 +70,3 @@ begin
     end if; -- CLK'event and CLK = '1' 
   end process;
 end behavioral;
-  
